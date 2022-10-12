@@ -1,37 +1,44 @@
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
 void fillArray(double list[], int listSize);
-void printArray(const double list[], int listSize);
-void CalcArray(double listR[], double listC, double listP, int listSize);
+void printArray(const double list[], int listSize, int width);
+void CalcArray(double listR[], double listC[], double listP[], int listSize);
 
 int main() {
 
+  int width;
   const int arrayLength = 5;
   double Resistance[arrayLength] = {16, 27, 39, 56, 81};
   double current[arrayLength];
   double Power[arrayLength];
 
-  //output resitance
-  cout << "Resistance is :";
-  printArray(Resistance, arrayLength);
+
 
   //input current and output it
-  cout << "Current is: ";
+  width = 5;
+  cout << setw(width) << "Current";
   fillArray(current, arrayLength);
-  printArray(current, arrayLength);
+  printArray(current, arrayLength, width);
 
+  //output resitance
+  width = 15;
+  cout << setw(width) << "Resistance";
+  printArray(Resistance, arrayLength, width);
+  
 
   // calculate Power
-  CalcArray(Resistance, arrayLength);
+  CalcArray(Resistance, current, Power, arrayLength);
 
   //output power
-  cout << "Power is : ";
-  printArray(Power, arrayLength);
+  width = 25;
+  cout << setw(width) << "Power";
+  printArray(Power, arrayLength, width);
   
-  return = 0;
+  return 0;
 }
 
 /* This function reads and stores data in an integer array from the console.
@@ -53,19 +60,18 @@ void fillArray(double list[], int listSize) {
 /* This function prints the elements of an integer array as a single row.
   Parameters: list[] is the array
               listSize is the size of the array */
-void printArray(const double list[], int listSize) {
+void printArray(const double list[], int listSize, int location) {
   int index;
 
   for (index = 0; index < listSize; index++)
-    cout << list[index] << " ";
+    cout << setw(location) << list[index] << endl;
 
-  cout << endl;
   return;
 }
 
 /* This function does the calculations and fills an array */
 
-void CalcArray(double listR[], double listC, double listP, int listSize) {
+void CalcArray(double listR[], double listC[], double listP[], int listSize) {
 
   int index;
 
