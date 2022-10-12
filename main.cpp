@@ -5,7 +5,7 @@
 using namespace std;
 
 void fillArray(double list[], int listSize);
-void printArray(const double list[], int listSize, int width);
+void printArrays(const double listC[], const double listR[], const double listP[], int listSize);
 void CalcArray(double listR[], double listC[], double listP[], int listSize);
 
 int main() {
@@ -20,13 +20,15 @@ int main() {
 
   //input current and output it
   width = 5;
-  cout << setw(width) << "Current";
   fillArray(current, arrayLength);
-  printArray(current, arrayLength, width);
+  cout << setw(width) << "Current " << setw(15) << "Resistance" << setw(12) << "Power";
+  cout <<"\n";
+  printArrays(current, Resistance, Power, arrayLength);
 
+  /*
   //output resitance
   width = 15;
-  cout << setw(width) << "Resistance";
+  //cout << setw(width) << "Resistance";
   printArray(Resistance, arrayLength, width);
   
 
@@ -35,9 +37,9 @@ int main() {
 
   //output power
   width = 25;
-  cout << setw(width) << "Power";
+  //cout << setw(width) << "Power";
   printArray(Power, arrayLength, width);
-  
+  */
   return 0;
 }
 
@@ -60,11 +62,11 @@ void fillArray(double list[], int listSize) {
 /* This function prints the elements of an integer array as a single row.
   Parameters: list[] is the array
               listSize is the size of the array */
-void printArray(const double list[], int listSize, int location) {
+void printArrays(const double listC[], const double listR[], const double listP[],int listSize) {
   int index;
 
   for (index = 0; index < listSize; index++)
-    cout << setw(location) << list[index] << endl;
+    cout << setw(5) << listC[index] << setw(15) << listR[index] << setw(20) << listP[index] << endl;
 
   return;
 }
