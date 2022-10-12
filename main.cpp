@@ -3,8 +3,9 @@
 
 using namespace std;
 
-void fillArray(int list[], int listSize);
-void printArray(const int list[], int listSize);
+void fillArray(double list[], int listSize);
+void printArray(const double list[], int listSize);
+void CalcArray(double listR[], double listC, double listP, int listSize);
 
 int main() {
 
@@ -13,8 +14,22 @@ int main() {
   double current[arrayLength];
   double Power[arrayLength];
 
-  cout << "resistance is :";
+  //output resitance
+  cout << "Resistance is :";
   printArray(Resistance, arrayLength);
+
+  //input current and output it
+  cout << "Current is: ";
+  fillArray(current, arrayLength);
+  printArray(current, arrayLength);
+
+
+  // calculate Power
+  CalcArray(Resistance, arrayLength);
+
+  //output power
+  cout << "Power is : ";
+  printArray(Power, arrayLength);
   
   return = 0;
 }
