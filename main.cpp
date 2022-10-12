@@ -25,21 +25,7 @@ int main() {
   cout <<"\n";
   printArrays(current, Resistance, Power, arrayLength);
 
-  /*
-  //output resitance
-  width = 15;
-  //cout << setw(width) << "Resistance";
-  printArray(Resistance, arrayLength, width);
-  
 
-  // calculate Power
-  CalcArray(Resistance, current, Power, arrayLength);
-
-  //output power
-  width = 25;
-  //cout << setw(width) << "Power";
-  printArray(Power, arrayLength, width);
-  */
   return 0;
 }
 
